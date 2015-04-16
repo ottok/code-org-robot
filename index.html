@@ -1,0 +1,18 @@
+<html>
+<body>
+
+<form action="/" method="get">
+  http://studio.code.org/c/<input type="text" name="id">
+  <input type="submit" value="&rarr;">
+</form>
+
+<script>
+var idElement = document.getElementsByName('id')[0];
+var id = parseInt(window.location.search.substr(4), 10);
+if (typeof id == 'number') {
+  idElement.value = id;
+}
+</script>
+
+</body>
+</html>
