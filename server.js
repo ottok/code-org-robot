@@ -3,8 +3,7 @@
 var express = require('express');
 var app = express();
 
-var Browser = require('zombie');
-var browser = new Browser();
+var phantom = require('phantom');
 
 app.get('/', function (req, res) {
   res.sendfile('index.html');
@@ -13,26 +12,69 @@ app.get('/', function (req, res) {
   if (typeof id == 'number') {
     console.log('Executing gallery item id ' + id);
 
-    browser.visit('http://studio.code.org/c/42489384/edit', function (e) {
-      if (e) {
-        throw e;
-      }
+    phantom.create(function (ph) {
+      ph.createPage(function (page) {
 
-      /*
-      console.log(browser.text('title'));
-      // wait for new page to be loaded then fire callback function
-      browser.wait().then(function() {
-        console.log(browser.text('title'));
-        console.log(browser.text('#show-code-header'));
-        browser.evaluate("$('#show-code-header').click()");
-        return callback(null);
+        // Viewport must be defined for code.org to render properly
+        page.set('viewportSize', {width:1024,height:768});
+
+        // Faster when less data to download
+        page.set('settings.loadImages', false);
+
+        // Log events
+        page.set('onLoadStarted', function() {
+            console.log("page.onLoadStarted");
+        });
+        page.set('onLoadFinished', function() {
+            console.log("page.onLoadFinished");
+        });
+        page.onResourceRequested(
+          function(requestData, request, arg1, arg2) { },
+          function(requestData) { console.log(requestData.url) }
+        );
+        page.set('onError', function (msg, trace) {
+          console.log(msg);
+          trace.forEach(function(item) {
+            console.log('  ', item.file, ':', item.line);
+          });
+        });
+
+        // Fetch code
+        var url = 'http://studio.code.org/c/' + id + '/edit';
+        page.open(url, function (status) {
+          console.log("Fetched url " + url + " with " + status);
+          page.render('1.png');
+
+          // Page isn't rendered at pageLoad. Instead wait
+          // for some additional time until fully loaded.
+          setTimeout(function() {
+            page.render('2.png');
+
+            // Simple .click() didn't work, event hack required!
+            page.evaluate(function() {
+                var a = document.getElementById("show-code-header");
+                var e = document.createEvent('MouseEvents');
+                e.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                a.dispatchEvent(e);
+                waitforload = true;
+                return document.readyState;
+            }, function (result) {
+              console.log('readyState: ' + result);
+              page.render('3.png');
+
+              page.evaluate(function () {
+                return $('pre.generatedCode')[0].innerText;
+              }, function (result) {
+                page.render('3.png');
+                console.log('Code: ' + result);
+                ph.exit();
+              });
+            });
+
+          }, 8000);
+
+        });
       });
-      */
-      // var target = browser.querySelector('#show-code-header');
-      // browser.fire(target, 'click');
-      // console.log(browser.text('title'));
-      // console.log(browser.text('pre.generatedCode'));
-
     });
 
   }
