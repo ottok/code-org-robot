@@ -186,10 +186,8 @@ Cylon.robot({
     // Use same syntax for movement as in code.org tutorials and Blockly
     // ** EDIT BELOW TO MAKE YOUR OWN MOVEMENT PATTERN **
 
-    turnRight(30);
-    moveForward(10);
-    turnLeft(30);
-    moveForward(10);
+    console.log('Running: \n' + Cylon.commands.code);
+    eval(Cylon.commands.code);
 
     // ** EDIT ABOVE TO MAKE YOUR OWN MOVEMENT PATTERN **
     // Remember to run this as sudo!
@@ -219,7 +217,11 @@ Cylon.robot({
     });
 
   }
-}).start();
+});
 
-module.exports = true;
+Cylon.commands = {
+  code: 'moveForward(10);', // Initialize empty
+};
+
+module.exports = Cylon;
 

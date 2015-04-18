@@ -4,16 +4,18 @@
 <h1>Code.org robot</h1>
 
 <form id="codeform">
-  Copy-paste the code here:<br>
-  <textarea id="code" cols="50" rows="20"></textarea><br>
-  <button>Run</button>
+Copy-paste the code here:<br>
+<textarea id="code" cols="50" rows="20">
+moveForward(50);
+turnLeft(90);
+</textarea><br>
+<button>Run</button>
 </form>
 
 <script type="text/javascript">
 (function() {
   var httpRequest;
   document.getElementById('codeform').onsubmit = function(e) {
-    console.log(e);
     e.preventDefault();
     sendCode();
   };

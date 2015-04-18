@@ -4,19 +4,23 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+var robot = require('./robot.js');
+
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 
 app.get('/', function (req, res) {
   res.sendfile(__dirname + '/index.html');
 });
 
 app.post('/', function (req, res) {
-  var code = req.body.code;
-  res.send('Running: \n' + code);
-  //var robot = require('./robot.js');
+  robot.commands.code = req.body.code;
+  robot.start();
 });
+
 
 var server = app.listen(8080, function () {
 
