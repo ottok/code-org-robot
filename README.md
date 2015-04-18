@@ -39,7 +39,7 @@ npm install
 sudo nodemon robot.js
 ```
 
-Super user priviledges are needed so that the Cylon robotics library can access the GPIO pin controls.
+Super user priviledges are needed so that the [Cylon robotics library](http://cylonjs.com/documentation/platforms/raspberry-pi/) can access the GPIO pin controls.
 
 
 ## Running the robot ##
