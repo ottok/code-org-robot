@@ -3,17 +3,40 @@
 
 <h1>Code.org robot</h1>
 
-<form action="/" method="get">
-  http://studio.code.org/c/<input type="text" name="id">
-  <input type="submit" value="&rarr;">
+<form id="codeform">
+  Copy-paste the code here:<br>
+  <textarea id="code" cols="50" rows="20"></textarea><br>
+  <button>Run</button>
 </form>
 
-<script>
-var idElement = document.getElementsByName('id')[0];
-var id = parseInt(window.location.search.substr(4), 10);
-if (typeof id == 'number' && id >= 0 ) {
-  idElement.value = id;
-}
+<script type="text/javascript">
+(function() {
+  var httpRequest;
+  document.getElementById('codeform').onsubmit = function(e) {
+    console.log(e);
+    e.preventDefault();
+    sendCode();
+  };
+
+  function sendCode() {
+    httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('POST', '/');
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var code = document.getElementById('code').value;
+    httpRequest.send('code=' + encodeURIComponent(code));
+  }
+
+  function alertContents() {
+    if (httpRequest.readyState === 4) {
+      if (httpRequest.status === 200) {
+        alert(httpRequest.responseText);
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+})();
 </script>
 
 </body>
