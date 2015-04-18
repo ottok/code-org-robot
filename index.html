@@ -1,6 +1,8 @@
 <html>
 <body>
 
+<h1>Code.org robot</h1>
+
 <form action="/" method="get">
   http://studio.code.org/c/<input type="text" name="id">
   <input type="submit" value="&rarr;">
@@ -9,7 +11,7 @@
 <script>
 var idElement = document.getElementsByName('id')[0];
 var id = parseInt(window.location.search.substr(4), 10);
-if (typeof id == 'number') {
+if (typeof id == 'number' && id >= 0 ) {
   idElement.value = id;
 }
 </script>

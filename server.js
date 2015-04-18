@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
   res.sendfile('index.html');
   // newer syntax: res.sendFile(__dirname + '/index.html');
   var id = parseInt(req.query.id);
-  if (typeof id == 'number') {
+  if (typeof id == 'number' && id >= 0) {
     console.log('Executing gallery item id ' + id);
 
     phantom.create(function (ph) {
