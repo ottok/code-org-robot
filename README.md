@@ -51,6 +51,10 @@ Once the robot is running, the operator can join the robot WLAN. Once connected,
 ![SCreenshot of console](console.png "Console")
 
 
+## Run automatically on restart ##
+
+To have the robot running automatically on boot, you need in /etc/rc.local to define and export PATH and NODE_PATH, change directory into the code-org-robot directory and launch the server.js via [forever](https://github.com/foreverjs/forever).
+
 ## TODO ##
 
  * Document better how wifi access point was set up and how Node.js app is automatically launched from /etc/rc.local
