@@ -10,6 +10,7 @@ var robot = require('./robot.js');
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use('/static', express.static('public'));
 
 
 app.get('/', function (req, res) {

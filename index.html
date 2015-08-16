@@ -1,45 +1,55 @@
 <html>
-<body>
 
-<h1>Code.org robot</h1>
+<head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="static/robot.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-<form id="codeform">
-Copy-paste the code here:<br>
-<textarea id="code" cols="50" rows="20">
-moveForward(50);
+<body >
+  <div class="header">
+    <h1>Code.org robot </h1>
+  </div>
+  <div class="content-wrapper content">
+    <form class="pure-form pure-form-stacked" id="codeform">
+      <fieldset>
+        <legend>Copy-paste the code here:</legend>
+        <textarea id="code" cols="50" rows="20">moveForward(50);
 turnLeft(90);
-</textarea><br>
-<button>Run</button>
-</form>
+        </textarea>
+        <button class="pure-button pure-button-primary">Run</button>
+      </fieldset>
+    </form>
+  </div>
 
-<script type="text/javascript">
-(function() {
-  var httpRequest;
-  document.getElementById('codeform').onsubmit = function(e) {
-    e.preventDefault();
-    sendCode();
-  };
+  <script type="text/javascript">
+    (function() {
+      var httpRequest;
+      document.getElementById('codeform').onsubmit = function(e) {
+        e.preventDefault();
+        sendCode();
+      };
 
-  function sendCode() {
-    httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('POST', '/');
-    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    var code = document.getElementById('code').value;
-    httpRequest.send('code=' + encodeURIComponent(code));
-  }
-
-  function alertContents() {
-    if (httpRequest.readyState === 4) {
-      if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
-      } else {
-        alert('There was a problem with the request.');
+      function sendCode() {
+        httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = alertContents;
+        httpRequest.open('POST', '/');
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        var code = document.getElementById('code').value;
+        httpRequest.send('code=' + encodeURIComponent(code));
       }
-    }
-  }
-})();
-</script>
 
+      function alertContents() {
+        if (httpRequest.readyState === 4) {
+          if (httpRequest.status === 200) {
+            alert(httpRequest.responseText);
+          } else {
+            alert('There was a problem with the request.');
+          }
+        }
+      }
+    })();
+  </script>
 </body>
+
 </html>
