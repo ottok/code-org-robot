@@ -60,8 +60,7 @@ To have the robot running automatically on boot, you need in /etc/rc.local to de
  * Document better how wifi access point was set up and how Node.js app is automatically launched from /etc/rc.local
  * Better calibrate the robot's wheels to ensure clean 90 degree turns
  * Write more JavaScript functions to extend the compatibility with all possible function names used at Code.org
- * Imporive the web UI visuals, make is more colorful etc
- * Integrate a small IDE in the web UI to make writing more code plesant
+ * Integrate a small IDE in the web UI to make writing more code pleasant
  * Run eval() on the code already on the browser side and thus protect from failures in the eval() execution on the server side (as client side failure is easier for user to detect and debug than server)
  * Make server-client communication more real time, maybe provide a websocket based console that exposes in web ui what the server ran
- 
+
