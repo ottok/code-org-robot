@@ -72,7 +72,6 @@ Then configure the access point:
   interface=lo,wlan0
   no-dhcp-interface=lo
   dhcp-range=192.168.0.50,192.168.0.150,12h
-  address=/#/192.168.0.1
 ```
 
 ```
