@@ -9,7 +9,22 @@
 
 For the setup stage you also need to connect the robot via HDMI to a monitor, via USB to a keyboard and via Ethernet cable to the Internet. Finally start the system by connecting power via USB.
 
-## Software setup ##
+## Software setup - quick method ##
+
+Download ready made image:
+
+```
+wget http://koodikerho.fi/code-org-robot/code-org-robot.img.xz
+```
+
+Extract and load to the SD card (in example below SD card is at address /dev/sdb)
+
+```
+unzx code-org-robot.img.xz
+sudo dd if=code-org-robot.img. of=/dev/sdb
+```
+
+## Software setup - most educating method ##
 
 Install the latest Rasbian as the operating system. Activate SSH and log in remotely so you can copy-paste the commands below from the comfort of you laptop or work station.
 
@@ -134,6 +149,10 @@ Once the robot is running, the operator can join the robot WLAN. Once connected,
 
 ![SCreenshot of console](console.png "Console")
 
+
+Printable instructions at in Finnish at https://github.com/ottok/code-org-robot/raw/master/instructions/Finnish.odt
+
+Contributions to translate it is welcomed!
 
 ## TODO ##
 
