@@ -4,7 +4,7 @@
 
 ## Hardware setup ##
 
- * Buy the [Ryantek RTK-000-003 Budget Robotics Kit](http://www.ryanteck.uk/store/ryanteck-budget-robotics-kit-for-raspberry-pi) with the wifi module and asseblme it
+ * Buy the [Ryantek RTK-000-003 Budget Robotics Kit](http://www.ryanteck.uk/store/ryanteck-budget-robotics-kit-for-raspberry-pi) with the wifi module and assemble it
  * Also needed: as Raspberry Pi computer, a USB battery to run the Raspi wirelessly and 4 AAA sized batteries to power the wheels
 
 For the setup stage you also need to connect the robot via HDMI to a monitor, via USB to a keyboard and via Ethernet cable to the Internet. Finally start the system by connecting power via USB.
@@ -156,9 +156,9 @@ Contributions to translate it is welcomed!
 
 ## TODO ##
 
- * Document better how wifi access point was set up and how Node.js app is automatically launched from /etc/rc.local
- * Better calibrate the robot's wheels to ensure clean 90 degree turns
- * Write more JavaScript functions to extend the compatibility with all possible function names used at Code.org
- * Integrate a small IDE in the web UI to make writing more code pleasant
- * Run eval() on the code already on the browser side and thus protect from failures in the eval() execution on the server side (as client side failure is easier for user to detect and debug than server)
- * Make server-client communication more real time, maybe provide a websocket based console that exposes in web ui what the server ran
+ # Integrate a small IDE in the web UI to make writing more code pleasant
+ # Run eval() on the code already on the browser side and thus protect from failures in the eval() execution on the server side (as client side failure is easier for user to detect and debug than server)
+ # Make server-client communication more real time, maybe provide a websocket based console that exposes in web ui what the server ran
+ # Write more JavaScript functions to extend the compatibility with all possible function names used at Code.org
+ # Better calibrate the robot's wheels to ensure clean 90 degree turns
+
