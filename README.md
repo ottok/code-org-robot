@@ -4,7 +4,7 @@
 
 ## Hardware setup ##
 
- * Buy the [Ryantek RTK-000-003 Budget Robotics Kit](http://www.ryanteck.uk/store/ryanteck-budget-robotics-kit-for-raspberry-pi) with the wifi module and assemble it
+ * Buy the [Ryantek RTK-000-003 Budget Robotics Kit](https://ryanteck.uk/raspberry-pi/45-ryanteck-budget-robotics-kit-for-raspberry-pi-620979161726.html) with the wifi module and assemble it
  * Also needed: as Raspberry Pi computer, a USB battery to run the Raspi wirelessly and 4 AAA sized batteries to power the wheels
 
 For the setup stage you also need to connect the robot via HDMI to a monitor, via USB to a keyboard and via Ethernet cable to the Internet. Finally start the system by connecting power via USB.
