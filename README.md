@@ -154,6 +154,18 @@ Printable instructions at in Finnish at https://github.com/ottok/code-org-robot/
 
 Contributions to translate it is welcomed!
 
+
+## Howto calibrate the turning circle ##
+
+By default the robot.js assumes that it takes 1.52 seconds for the motors to rotate the robot a full 360 degrees circle:
+
+```
+var circleTime = 1.52;
+```
+
+Depending on differences in hardware, this figure may vary. Many Raspberry Pi A+ -models seem to do a full circle in 1.05 seconds. Experiment by changing the variable and restarting the program to find your optimal value.
+
+
 ## TODO ##
 
  # Integrate a small IDE in the web UI to make writing more code pleasant
