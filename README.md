@@ -1,8 +1,6 @@
-# A robot that executes the Code.org code #
+# A cool robot inspired by and compatible with Code.org tutorials #
 
 ![Assembled robot](node-js-code-org-robot.jpg "Assembled Ryantek robot")
-
-Disclaimer: Disclaimer: Code.org is a 501(c)(3) non-profit organization ("Code.org") registered in the United States of America. This robot was not made by Code.org but independently by volunteers who use Code.org to teach programming to children.
 
 This robot is compatible with the JavaScript produced in the code editor at [Code.org](http://code.org/) and in general can be compatible with any code produced with the Google [Blockly](https://developers.google.com/blockly/) code editor.
 
@@ -177,4 +175,8 @@ Depending on differences in hardware, this figure may vary. Many Raspberry Pi A+
  # Make server-client communication more real time, maybe provide a websocket based console that exposes in web ui what the server ran
  # Write more JavaScript functions to extend the compatibility with all possible function names used at Code.org
  # Better calibrate the robot's wheels to ensure clean 90 degree turns
+
+## Legal note ##
+
+This robot was independently by volunteers who use Code.org to teach programming to children. This robot was not made by Code.org and is not endorsed by them. Code.org is a 501(c)(3) non-profit organization ("Code.org") registered in the United States of America. 
 
