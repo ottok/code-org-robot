@@ -2,6 +2,10 @@
 
 ![Assembled robot](node-js-code-org-robot.jpg "Assembled Ryantek robot")
 
+Disclaimer: Disclaimer: Code.org is a 501(c)(3) non-profit organization ("Code.org") registered in the United States of America. This robot was not made by Code.org but independently by volunteers who use Code.org to teach programming to children.
+
+This robot is compatible with the JavaScript produced in the code editor at [Code.org](http://code.org/) and in general can be compatible with any code produced with the Google [Blockly](https://developers.google.com/blockly/) code editor.
+
 ## Hardware setup ##
 
  * Buy the [Ryantek RTK-000-003 Budget Robotics Kit](https://ryanteck.uk/raspberry-pi/45-ryanteck-budget-robotics-kit-for-raspberry-pi-620979161726.html) with the wifi module and assemble it
